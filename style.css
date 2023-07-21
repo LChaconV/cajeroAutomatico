@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+body div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+body img {
+    border-radius: 50%;
+    width: 80px;
+}
+#stylePassword{
+    display:none;
+
+  
+}
+#btn-logIn{
+    display: none;
+}

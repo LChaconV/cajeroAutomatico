@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cajero automático</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header >
+        <h1>CAJERO AUTOMÁTICO</h1>
+    </header>
+    <main>
+       
+        <h3>Seleccione usuario</h3>
+
+<div id="usuario-1" onclick="logIn1() ">
+    <img src="./assets/mali.png" alt="">
+    <p>Mali</p>
+</div>
+
+<div id="usuario-2" onclick="logIn2() ">
+    <img src="./assets/gera.png" alt="">
+    <p>Gera</p>
+</div>
+<div id="usuario-3" onclick="logIn3()">
+    <img src="./assets/maui.png" alt="">
+    <p>
+        Maui
+    </p>
+</div>
+    </main>
+
+<div id="stylePassword" class ="stylePassword" >
+    <label for="">Password</label>
+    <input id="password" type="text">
+</div>
+<div id="btn-logIn" class="btn-logIn">
+    <button onclick="checkPassword()"> Log In</button>
+</div>
+
+    <footer></footer>
+</body>
+<script src="main.js"></script>
+</html>
