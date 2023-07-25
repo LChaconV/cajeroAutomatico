@@ -113,12 +113,15 @@ btnIngresar.addEventListener("click", function (event) {
       alert(
         "El monto máximo en la cuenta debe ser de $990 con esta transacción usted supera el monto"
       );
-      ;
+      conseguirBalance.innerHTML = `Valor consignado: $0\n Saldo Actual: $${userInLocalStorage[2]}`
     }
     else {
 
+      
+      conseguirBalance.innerHTML = `Valor consignado: $${valorIn}\n Saldo Actual: $${balance}`
+      
+      
       userInLocalStorage[2] = balance;
-
       localStorage.setItem(
         "userInLocalStorage",
         JSON.stringify(userInLocalStorage)
@@ -126,10 +129,11 @@ btnIngresar.addEventListener("click", function (event) {
     }
 
     ingresar.value = "";
-    conseguirBalance.innerHTML = `Saldo Actual: $${userInLocalStorage[2]}`
+ 
   }
   else {
     alert("Transacción rechazada.Ingrese un valor válido.")
+    conseguirBalance.innerHTML = `Valor consignado: $0\n Saldo Actual: $${userInLocalStorage[2]}`
   }
 });
 
@@ -140,12 +144,16 @@ btnRetirar.addEventListener("click", function (event) {
     valorOut = parseInt(valorOut);
     balance = userInLocalStorage[2] - valorOut;
     console.log(valorOut);
+    
     if (balance < 10 || valorOut < 0) {
       alert(
         `valor no valido.Su balance es menor a $10 unicamente puede retirar $${valorOut-10}`
+        
       );
+      conseguirBalance.innerHTML =`Valor retirado: $0\nSaldo Actual: $${userInLocalStorage[2]}`
     }
     else {
+      conseguirBalance.innerHTML =`Valor retirado: $${valorOut}\nSaldo Actual: $${balance}`
       userInLocalStorage[2] = balance;
       localStorage.setItem(
         "userInLocalStorage",
@@ -153,10 +161,12 @@ btnRetirar.addEventListener("click", function (event) {
       )
     }
     retirar.value = "";
-    conseguirBalance.innerHTML = `Saldo Actual: $${userInLocalStorage[2]}`
+    
+ 
   }
 else {
   alert("Transacción rechazada.Ingrese un valor válido.")
+  conseguirBalance.innerHTML =`Valor retirado: $0\nSaldo Actual: $${userInLocalStorage[2]}`
 }
 });
 // CERRAR SESIÓN Y VOLVER A LA PÁGINA DE INICIO
@@ -173,12 +183,12 @@ function volver(){
 function espacioParaIngresar() {
   mostrarIngresar.style.display = "flex";
   mostrarRetirar.style.display = "none";
-  conseguirBalance.innerHTML = `Saldo Actual: $${userInLocalStorage[2]}`
+  conseguirBalance.innerHTML = `\nSaldo Actual: $${userInLocalStorage[2]}`
 }
 function espacioParaRetirar() {
   mostrarRetirar.style.display = "flex";
   mostrarIngresar.style.display = "none";
-  conseguirBalance.innerHTML = `Saldo Actual: $${userInLocalStorage[2]}`
+  conseguirBalance.innerHTML = `\nSaldo Actual: $${userInLocalStorage[2]}`
 }
 function balancePantalla() {
   mostrarRetirar.style.display = "none";
